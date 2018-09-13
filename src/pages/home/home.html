@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+	
+	<ion-searchbar (ionInput)="getProduct($event)" col-8></ion-searchbar>
+	
+	<ion-icon name="heart" isActive="false"></ion-icon> 
+	
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content >
+	 
+	 <ion-grid >
+			 <ion-row >
+				<ion-col *ngFor="let item of product; let i = index" (click)="openNavDetailsPage(item)" col-6>
+					  <ion-card style="width: calc(100% - -2px); margin: 0px; height:100% ">
+					  <img src="http://hdishop.xeemore.com/img/product/{{ item.Product_Code }}.jpg" />
+							  <ion-card-content>
+								<p>
+								  {{ item.Product_Name }}
+								</p>
+							  </ion-card-content>
+						
+						  
+							  <ion-col>
+								<button ion-button clear small color="danger" icon-start>
+								  Rp  {{ item.Dist_Price1 }}
+								</button>
+							  </ion-col>
+							 
+							  <ion-col text-right>
+								<button ion-button clear small color="danger" icon-start>
+								  BP {{ item.Business_Point }}
+								</button>
+							  </ion-col>
+					</ion-card>
+			   </ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
